@@ -52,9 +52,10 @@ class Card
 		if !@faceup
 			UNICODE_VALUES[:card_back]
 		else # Construct unicode string for a card based on it's assigned suit and rank
-			%[\u{1F0#{UNICODE_VALUES[:suit][@suit] + UNICODE_VALUES[:rank][@rank - 1]}}]
+			codepoint = '1F0' + UNICODE_VALUES[:suit][@suit] + UNICODE_VALUES[:rank][@rank - 1]
+			[codepoint.hex].pack('U')
 		end
 	end
 end
 
-Card.new.print
+
