@@ -1,8 +1,8 @@
 # encoding: utf-8
 #
 # Generic playing card class for use in object-oriented programs. Provides the following:
-# - Unicode representation of playing cards
-# - Colorization #todo
+# - Unicode representation of playing cards via codepoint composition
+# - Colorization
 #
 require 'colorize'
 
@@ -41,8 +41,9 @@ class Card
 		self.unicode_representation
 	end
 
-	def flip()
-		# todo
+	def flip
+		@faceup = !@faceup
+		# todo: refresh output within this method?
 	end
 
 	protected
@@ -51,11 +52,9 @@ class Card
 	def unicode_representation
 		if !@faceup
 			UNICODE_VALUES[:card_back]
-		else # Construct unicode string for a card based on it's assigned suit and rank
+		else # Construct unicode string for a card based on its suit and rank, and add color
 			codepoint = '1F0' + UNICODE_VALUES[:suit][@suit] + UNICODE_VALUES[:rank][@rank - 1]
-			[codepoint.hex].pack('U')
+			[codepoint.hex].pack('U').colorize @color
 		end
 	end
 end
-
-
