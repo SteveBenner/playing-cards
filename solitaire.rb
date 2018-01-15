@@ -1,0 +1,3 @@
+# Solitaire
+#
+require 'lib/card'
