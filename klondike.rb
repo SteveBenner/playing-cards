@@ -34,13 +34,13 @@ require_relative 'lib/game'
 # Following a move, the top card of the pile the card or cards were moved from is exposed (if the pile is not empty.)
 
 class Game
-	attr_accessor :deck, :piles
+  attr_accessor :deck, :piles
 
-	def setup
-		# Begin with a standard deck, shuffled
-		@deck  = Deck::STANDARD.dup.shuffle
-		# Lay out 7 stacks of cards, each containing one more card than the prior. The first card in each stack is faceup.
-		@piles =
-	end
+  def setup
+    # Begin with a standard deck, shuffled
+    @deck = Deck::STANDARD.dup.shuffle
+    # Lay out 7 stacks of cards, each containing one more card than the prior. The first card in each stack is faceup.
+    @piles =
+  end
 end
 

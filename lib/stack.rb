@@ -1,5 +1,5 @@
 require 'pile'
 
 class Stack < Pile
-	include LIFO
+  include LIFO
 end

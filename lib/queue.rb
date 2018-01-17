@@ -1,5 +1,5 @@
 require 'pile'
 
 class Queue < Pile
-	include FIFO
+  include FIFO
 end
