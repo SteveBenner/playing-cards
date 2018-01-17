@@ -1,8 +1,9 @@
 # encoding: utf-8
 #
 # Generic playing card class for use in object-oriented programs. Provides the following:
-# - Unicode representation of playing cards via codepoint composition
+# - Unicode representation of playing cards via code point composition
 # - Colorization
+# - todo: use custom namespace?
 #
 require 'colorize'
 
@@ -22,17 +23,17 @@ class Card
 	# @param [Symbol] suit one of: [:spades, :hearts, :diamonds, :clubs]
 	# @param [Integer] rank numerical representation of the card value (including Jack, King, and Queen) from 0..13
 	# @param [Boolean] faceup whether or not a card is faceup
-	def initialize(suit=:spades, rank=1, faceup=true)
+	def initialize(suit = :spades, rank = 1, faceup = true)
 		@suit  = suit
 		@rank   = rank
 		@faceup = faceup
 		@color  = case suit
-			          when /spades|clubs/ then :black
+			          when /spades|clubs/    then :black
 			          when /hearts|diamonds/ then :red
 		          end
 	end
 
-	# Prints the string value of a card in a human-recognizable format, using whatever encoding ('IMB437' on windows)
+	# Prints the string value of a card in human-recognizable format, using the appropriate encoding ('IMB437' on windows)
 	def print
 		$stdout.print self.unicode_representation
 	end

@@ -1,8 +1,14 @@
 # Klondike solitaire
 #
+# Based on: https://en.wikipedia.org/wiki/Klondike_(solitaire)
+#
 require 'lib/card'
-require 'lib/deck'
+require 'lib/deck' # loads 'stack'
+require 'lib/game'
 
-# pseudocode
-# todo: shuffle and deal
-# todo: game loop
+class Game
+	def setup
+
+	end
+end
+
